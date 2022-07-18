@@ -8983,6 +8983,14 @@ textarea.form-control-lg {
     background-size: cover;
   }
 
+  #contact {
+    --bs-bg-opacity: 1;
+    /*background-color: rgba(var(--bs-primary-rgb), var(--bs-bg-opacity)) !important;*/
+    /*background-image: url("https://www.nasa.gov/sites/default/files/thumbnails/image/main_image_galaxies_stephans_quintet_sq_nircam_miri_final-5mb.jpg");*/
+    background-image: url(../assets/img/background/jpegpia23121.jpeg);
+    background-size: cover;
+  }
+
   .mt-md-0 {
     margin-top: 0 !important;
   }
