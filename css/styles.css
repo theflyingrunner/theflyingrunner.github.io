@@ -8,6 +8,7 @@
 }
 
 #about {
+  padding-top: 100px;
   background-image: url(../assets/img/background/STScI-01EVVD7503HEB67007NF9B6EE5.jpg);
   height: 100vh;
   display: block;
@@ -17,6 +18,7 @@
 }
 
 #engineering {
+  padding-top: 100px;
   background-image: url(../assets/img/background/IMG_5154.JPG);
   height: 100vh;
   display: block;
@@ -26,6 +28,7 @@
 }
 
 #research {
+  padding-top: 100px;
   background-image: url(../assets/img/background/IMG_5155.JPG);
   height: 100vh;
   display: block;
@@ -35,8 +38,9 @@
 }
 
 #contact {
-  background-image: url(../assets/img/background/STScI-01EVVKN43WKPQ3WSV9Y9887M47.jpg);
-  height: 100vh;
+  padding-top: 100px;
+  background-color: #333;
+  height: 50vh;
   display: block;
   background-size: cover;
   max-width: unset;
@@ -78,4 +82,13 @@ hr:after {
 
 img {
   padding-top: 180px;
+}
+
+/* The navigation bar */
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
 }
