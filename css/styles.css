@@ -50,9 +50,13 @@ h1 {
 }
 
 h2 {
-  text-align: center;
-  color: white ;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
   font-family: 'Roboto Mono', monospace;
+  font-weight: 700;
+  line-height: 1.2;
+  color: white ;
+  text-align: center;
 }
 
 hr {
@@ -72,3 +76,6 @@ hr:after {
   top: -13px;
 }
 
+img {
+  padding-top: 180px;
+}
