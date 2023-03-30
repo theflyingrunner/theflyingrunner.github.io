@@ -4,13 +4,33 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
 	<title>Saron Bhoopathy</title>
-	<link rel="icon" type="image/x-icon" href="/assets/img/favicon.ico">
+	<link rel="icon" type="image/x-icon" href="../img/favicon.ico">
 	<style type="text/css">body {font-size: 1.1em; line-height: 1.5em; max-width: 45em; margin: auto; padding: 0 2%;} img {max-width: 100%; display: block; margin: .75em auto;}</style>
 </head>
 <body>
 <h1>BD66 micro-turbojet engine</h1> 
 <hr />
-<h2>objectives:</h2>
+<h2>description & objectives:</h2>
+<p>This project started back in March 2021, when I first learned about the Brayton cycle in my thermodynamics class. 
+	Gas turbine engines are fascinating pieces of technology which are prevalent in power generation plants and modern airliners.
+	This design is based on the KJ66 engine, which was developed back in the late '90s. 
+	I have modernized the design to improve performance, efficiency, and reliability.
+	The primary goal is to design, build, and test a micro-turbojet engine capable of producing 80-100 N of thrust.
+</p>
+<hr />
+<h2>design process:</h2>
+<p>
+	<ol>
+		<li>Preliminary design and analysis: The first step was to establish a preliminary analysis based on design parameters. 
+			The specifications of the KJ66 were used as a reference along with parameters from Benini et al.
+			A MATLAB script was created using the procedure highlighted in Hill & Peterson.
+			The compressor pressure ratio is 2.2 at a maximum of 120,000 RPM.
+			A maximum turbine inlet temperature of 1170 K was selected with kerosene as primary fuel source.
+			This results in an estimated specific thrust of 438.77 N-s/kg and TSFC of 3.3014E-07 kg/kN-s.
+			At an estimated mass flow rate of 0.22 kg/s at max RPM, the thrust is 97 N.
+			This is an improvement over the thrust of 75 N produced by the KJ66.</li>
+	</ol>
+</p>
 <hr />
 </body>
 </html>
