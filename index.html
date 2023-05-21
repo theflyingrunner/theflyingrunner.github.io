@@ -1,59 +1,86 @@
 <!doctype html>
-
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width">
-	<title>Saron Bhoopathy</title>
-	<link rel="icon" type="image/x-icon" href="./assets/img/astro3.ico">
-	<link rel="stylesheet" type="text/css" href="index.css">
-	
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet"><style type="text/css">body {font-size: 1.1em; line-height: 1.5em; max-width: 45em; margin: auto; padding: 0 2%;} img {max-width: 100%; display: block; margin: .75em auto;}</style>
-</head>
-<body>
-<h1>Hi, I'm Saron and this is my website.</h1> 
-<hr />
-<h2>about me:</h2>
-<p>Welcome to my page! Here you will learn a little bit about my life and my work. 
-	I graduated from Purdue University with a BS in aerospace engineering and biology. 
-	Learning and creating have a special place in my heart. 
-	When I'm not working on engineering projects, I create and produce music. 
-	I also have a cat named <a href="./assets/static/toothless.html">Toothless</a>.</p>
-<hr />
-<h2>engineering projects:</h2>
-<p>This is a selection of projects I have worked on—</p>
-<ul>
-	<li>
-		<a href="./assets/static/bd66.html">BD66 micro-turbojet engine</a>
-	</li>
-	<li>
-		<a href="./assets/static/mgt.html">Purdue micro-gas turbine</a>
-	</li>
-	<li>
-		<a href="./assets/static/jetros.html">NVIDIA Jetson-ROS Rover</a>
-	</li>
-</ul>
-<hr />
-<h2>gallery:</h2>
-<p>Here is a collection of pictures and info from conferences, presentations, and my time at Purdue—</p>
-<ul>
-	<li>
-		<a href="./assets/static/surf2022.html">Summer Undergraduate Research Symposium 2022</a>
-	</li>
-	<li>
-		<a href="./assets/static/purc2022.html">Purdue Research Conference 2022</a>
-	</li>
-	<li>
-		<a href="./assets/static/frst.html">Purdue University Residences</a>
-	</li>
-</ul>
-<hr />
-<h2>contact me:</h2>
-<p>You can reach me by email: saron.bhoopathy@gmail.com</p>
-<hr />
-<p style="text-align: center; font-size: 80%; color:rgb(101, 101, 101); font-family: 'Courier New', Courier, monospace;"> Copyright &copy; <script>document.write(new Date().getFullYear())</script> Saron Manikam Bhoopathy. All rights reserved.
-</p>
-</body>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Saron Bhoopathy</title>
+        <link rel="icon" type="image/x-icon" href="./assets/img/astro3.ico">
+        <link rel="stylesheet" href="css/latex.css">
+    </head>
+    <body>
+        <header>
+            <h1>SaronBhoopathy.<span class="latex">L<span>a</span>T<span>e</span>X</span></h1> 
+            <p class="author">Saron Bhoopathy
+                <br />
+                <script>
+                    const monthNames = ["January", "February", "March", "April", "May", "June",
+                    "July", "August", "September", "October", "November", "December"];
+                    var currentDate = new Date();
+                    var month = currentDate.getMonth();
+                    var date = currentDate.getDate();
+                    var year = currentDate.getFullYear();
+                    var fullDate = " " + monthNames[month] + " " + date + ", " + year
+                    document.write(fullDate);
+                </script>
+            </p>
+        </header>
+        <main>
+            <article class="abstract">
+                <h2>Abstract</h2>
+                <p> Hi, I'm Saron and this is my website. Here, you will learn a little bit about my life and my work. 
+                    I graduated from Purdue University with a BS in aerospace engineering and biology. 
+                    Learning and creating have a special place in my heart. 
+                    When I'm not working on engineering projects, I create and produce music. 
+                    I also have a cat named <a href="./assets/static/toothless.html">Toothless</a>.If you prefer using this website in dark mode, click here: <button id="dark-mode-toggle">Dark Mode</button>.</p>
+            </article>
+            <!-- First section -->
+            <section>
+                <h2>Engineering Projects</h2>
+                <p>This is a selection of projects I have worked on—</p>
+                <ul>
+                    <li>
+                        <a href="./assets/static/bd66_latex.html">BD66 Turbojet Engine</a>
+                    </li>
+                    <li>
+                        <a href="./assets/static/mgt.html">Purdue micro-gas turbine</a>
+                    </li>
+                    <li>
+                        <a href="./assets/static/jetros.html">NVIDIA Jetson-ROS Rover</a>
+                    </li>
+                </ul>
+            </section>
+            <!-- Second section -->
+            <section>
+                <h2>Gallery</h2>
+                <p>Here is a collection of pictures and info from conferences, presentations, and my time at Purdue—</p>
+                <ul>
+                    <li>
+                        <a href="./assets/static/surf2022.html">Summer Undergraduate Research Symposium 2022</a>
+                    </li>
+                    <li>
+                        <a href="./assets/static/purc2022.html">Purdue Research Conference 2022</a>
+                    </li>
+                    <li>
+                        <a href="./assets/static/frst.html">Purdue University Residences</a>
+                    </li>
+                </ul>
+            </section>
+            <!-- Third section -->
+            <section>
+                <h2>Contact</h2>
+                <p>You can reach me by email: saron.bhoopathy@gmail.com.</p>
+            </section>
+            <article class="footnotes">
+                <p id="fn1">
+                    Copyright &copy; <script>document.write(new Date().getFullYear())</script> Saron Manikam Bhoopathy. All rights reserved.
+                </p>
+            </article>
+        </main>
+        <script>
+            const darkModeToggle = document.getElementById('dark-mode-toggle')
+            darkModeToggle.addEventListener('click', () => {
+              document.body.classList.toggle('latex-dark')
+            })
+          </script>
+    </body>
 </html>
