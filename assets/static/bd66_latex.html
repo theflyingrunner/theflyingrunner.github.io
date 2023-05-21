@@ -9,7 +9,23 @@
     <body>
         <header>
             <h1>BD66 Turbojet Engine</h1> 
-            <p class="author">Saron Bhoopathy</p>
+            <p class="author">Saron Bhoopathy
+                <br />
+                <script>
+                    const monthNames = ["January", "February", "March", "April", "May", "June",
+                    "July", "August", "September", "October", "November", "December"];
+                    var currentDate = new Date();
+                    var month = currentDate.getMonth();
+                    var date = currentDate.getDate();
+                    var year = currentDate.getFullYear();
+                    var fullDate = " " + monthNames[month] + " " + date + ", " + year
+                    document.write(fullDate);
+                </script>
+                <br />
+                <!--
+				<button id="dark-mode-toggle">Dark Mode</button>
+				-->
+            </p>
         </header>
         <main>
             <article class="abstract">
@@ -24,9 +40,68 @@
             <section>
                 <h2>Design Process</h2>
                 <p>WOOP—</p>
+                <div class="scroll-wrapper">
+                    <table>
+                      <caption>BD66 design parameters obtained from preliminary analysis in comparison with those of similarly sized engines.</caption>
+                      <tbody>
+                        <tr>
+                          <th scope="col">Name</th>
+                          <th scope="col">Pressure Ratio</th>
+                          <th scope="col">Max. RPM</th>
+                          <th scope="col">Mass Flow (kg/s)</th>
+                          <th scope="col">TIT (K)</th>
+                          <th scope="col">TSFC (kg/kN-s)</th>
+                          <th scope="col">Thrust (N)</th>
+                        </tr>
+                        <tr>
+                          <th scope="row" style="color: teal;">BD66 (estimated)</th>
+                          <td><code>2.2</code></td>
+                          <td><code>120,000</code></td>
+                          <td><code>0.22</code></td>
+                          <td><code>1170</code></td>
+                          <td><code>3.3014E-07</code></td>
+                          <td><code>97</code></td>
+                        </tr>
+                        <tr>
+                          <th scope="row" style="color: goldenrod;">KJ66</th>
+                          <td><code>2.2</code></td>
+                          <td><code>120,000</code></td>
+                          <td><code>0.22</code></td>
+                          <td><code>1170</code></td>
+                          <td><code>3.3014E-07</code></td>
+                          <td><code>97</code></td>
+                        </tr>
+                        <tr>
+                          <th scope="row" style="color: cornflowerblue;">Jetcat</th>
+                          <td><code>2.2</code></td>
+                          <td><code>120,000</code></td>
+                          <td><code>0.22</code></td>
+                          <td><code>1170</code></td>
+                          <td><code>3.3014E-07</code></td>
+                          <td><code>97</code></td>
+                        </tr>
+                        <tr>
+                          <th scope="row" style="color: lightcoral;">Xron</th>
+                          <td><code>2.2</code></td>
+                          <td><code>120,000</code></td>
+                          <td><code>0.22</code></td>
+                          <td><code>1170</code></td>
+                          <td><code>3.3014E-07</code></td>
+                          <td><code>97</code></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+            
             </section>
             <hr />
             <p style="text-align: center; font-size: 80%; color:rgb(101, 101, 101); font-family: 'Courier New', Courier, monospace;"> Copyright &copy; <script>document.write(new Date().getFullYear())</script> Saron Manikam Bhoopathy. All rights reserved.</p>
         </main>
+        <script>
+            const darkModeToggle = document.getElementById('dark-mode-toggle')
+            darkModeToggle.addEventListener('click', () => {
+              document.body.classList.toggle('latex-dark')
+            })
+          </script>
     </body>
 </html>
