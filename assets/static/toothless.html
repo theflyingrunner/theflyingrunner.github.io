@@ -2,37 +2,64 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width">
-	<title>Saron Bhoopathy</title>
-	<link rel="icon" type="image/x-icon" href="../img/astro3.ico">
-	<link rel="stylesheet" type="text/css" href="../../index.css">
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet"><style type="text/css">body {font-size: 1.1em; line-height: 1.5em; max-width: 45em; margin: auto; padding: 0 2%;} img {max-width: 100%; display: block; margin: .75em auto;}</style><style type="text/css">body {font-size: 1.1em; line-height: 1.5em; max-width: 45em; margin: auto; padding: 0 2%;} img {max-width: 100%; display: block; margin: .75em auto;}</style>
+        <meta name="viewport" content="width=device-width">
+        <title>Saron Bhoopathy</title>
+        <link rel="icon" type="image/x-icon" href="./assets/img/astro3.ico">
+        <link rel="stylesheet" href="../../css/latex.css">
 </head>
 <body>
-<h1>Toothless the cat</h1> 
-<hr />
-<h3>me and toothless</h3>
-<p><img src="../img/toothless/t1.jpg" alt="Saron and Toothless" style="width: 50%; height: 50%"/></p>
-<hr />
-<h3>blep</h3>
-<p><img src="../img/toothless/t2.jpg" alt="blep" style="width: 50%; height: 50%"/></p>
-<hr />
-<h3>poser</h3>
-<p><img src="../img/toothless/t3.jpg" alt="poser" style="width: 50%; height: 50%"/></p>
-<hr />
-<h3>party animal</h3>
-<p><img src="../img/toothless/t4.jpg" alt="party animal" style="width: 50%; height: 50%"/></p>
-<hr />
-<h3>sleepy kitty</h3>
-<p><img src="../img/toothless/t5.jpg" alt="sleepy kitty" style="width: 50%; height: 50%"/></p>
-<hr />
-<h3>bird watcher</h3>
-<p><img src="../img/toothless/t6.jpg" alt="bird watcher" style="width: 50%; height: 50%"/></p>
-<hr />
-<p style="text-align: center; font-size: 80%; color:rgb(101, 101, 101); font-family: 'Courier New', Courier, monospace;"> Copyright &copy; <script>document.write(new Date().getFullYear())</script> Saron Manikam Bhoopathy. All rights reserved.
-	<br>
-</p>
+	<header>
+		<h1>Toothless.<span class="latex">L<span>a</span>T<span>e</span>X</span></h1> 
+		<p class="author">Saron Bhoopathy
+			<br />
+			<script>
+				const monthNames = ["January", "February", "March", "April", "May", "June",
+				"July", "August", "September", "October", "November", "December"];
+				var currentDate = new Date();
+				var month = currentDate.getMonth();
+				var date = currentDate.getDate();
+				var year = currentDate.getFullYear();
+				var fullDate = " " + monthNames[month] + " " + date + ", " + year
+				document.write(fullDate);
+			</script>
+			<br />
+			<!--
+			<button id="dark-mode-toggle">Dark Mode</button>
+			-->
+		</p>
+	</header>
+	<main>
+		<article class="abstract">
+			<h2>Abstract</h2>
+			<p> 
+				Toothless likes sleeping in the sun, playing with strings, and destroying my plants. 
+				She's named after the dragon from the movie How to Train Your Dragon.
+			</p>
+		</article>
+		<section>
+			<p><img src="../img/toothless/t1.jpg" alt="Saron and Toothless" style="width: 50%; height: 50%"/></p>
+			<hr />
+			<p><img src="../img/toothless/t2.jpg" alt="blep" style="width: 50%; height: 50%"/></p>
+			<hr />
+			<p><img src="../img/toothless/t3.jpg" alt="poser" style="width: 50%; height: 50%"/></p>
+			<hr />
+			<p><img src="../img/toothless/t4.jpg" alt="party animal" style="width: 50%; height: 50%"/></p>
+			<hr />
+			<p><img src="../img/toothless/t5.jpg" alt="sleepy kitty" style="width: 50%; height: 50%"/></p>
+			<hr />
+			<p><img src="../img/toothless/t6.jpg" alt="bird watcher" style="width: 50%; height: 50%"/></p>
+		</section>
+		<article class="footnotes">
+			<p id="fn1">
+				Copyright &copy; <script>document.write(new Date().getFullYear())</script> Saron Manikam Bhoopathy. All rights reserved.
+			</p>
+		</article>
+	</main>
+	<script>
+		const darkModeToggle = document.getElementById('dark-mode-toggle')
+		darkModeToggle.addEventListener('click', () => {
+		  document.body.classList.toggle('latex-dark')
+		})
+	  </script>
 </body>
 </html>
