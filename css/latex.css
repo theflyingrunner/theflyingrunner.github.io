@@ -244,10 +244,31 @@
   }
   
   /* Make images easier to work with */
+  figure {
+    border: 2px solid var(--table-border-color);
+    display: block;
+    max-width: 320px;
+    padding: 2px;
+    overflow-x: hidden;
+    margin: 0 auto;
+  }
+  
   img {
     max-width: 100%;
-    height: auto;
-    display: block;
+
+  }
+  
+  figcaption {
+    background-color: var(--body-bg-color);
+    color: var(--body-color);
+    font-family: 'Latin Modern', Georgia, Cambria, 'Times New Roman', Times, serif;
+    text-align: center;
+
+    font-size: 0.923em;
+    /* border-bottom: 2pt solid #000; */
+    padding: 0 0.25em 0.25em;
+    width: 100%;
+    margin-left: 0;
   }
   
   /* Inherit fonts for inputs and buttons */
