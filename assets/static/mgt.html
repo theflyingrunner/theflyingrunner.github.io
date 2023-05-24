@@ -1,16 +1,77 @@
 <!doctype html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width">
-	<title>Saron Bhoopathy</title>
-	<link rel="icon" type="image/x-icon" href="/assets/img/favicon.ico">
-	<style type="text/css">body {font-size: 1.1em; line-height: 1.5em; max-width: 45em; margin: auto; padding: 0 2%;} img {max-width: 100%; display: block; margin: .75em auto;}</style>
-</head>
-<body>
-<h1>BD66 micro-turbojet engine</h1> 
-<hr />
-<h2>objectives:</h2>
-<hr />
-</body>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Saron Bhoopathy</title>
+        <link rel="icon" type="image/x-icon" href="../../assets/img/astro3.ico">
+        <link rel="stylesheet" href="../../css/latex.css">
+    </head>
+    <body>
+        <header>
+            <h1>Micro Gas Turbine DBT — Purdue University</h1>
+            <p class="author">Saron Bhoopathy
+                <br />
+                <script>
+                    const monthNames = ["January", "February", "March", "April", "May", "June",
+                    "July", "August", "September", "October", "November", "December"];
+                    var currentDate = new Date();
+                    var month = currentDate.getMonth();
+                    var date = currentDate.getDate();
+                    var year = currentDate.getFullYear();
+                    var fullDate = " " + monthNames[month] + " " + date + ", " + year
+                    document.write(fullDate);
+                </script>
+				<br />
+				<!--
+				<button id="dark-mode-toggle">Dark Mode</button>
+				-->
+            </p>
+        </header>
+        <main>
+            <article class="abstract">
+                <h2>Abstract</h2>
+                <p> I was first introduced to ROS during my time in Vertically Integrated Projects at Purdue under Prof. James Goppert.
+					I honed in on these skills and learned more abour integrating Deep Learning networks with ROS during my
+					time at the Digital Agriculture Discovery Lab as part of the SUR Fellowship at Purdue.
+					This project aims to integrate various Deep Learning technologies such as detection networks and large language models
+					with Robot Operating System to construct a multipurpose rover. I am currently working on implementing GPT-3 using the chatGPT API
+					as well as Google's speech APIs to enable a user to speak to the rover through chatAPI.
+					Additionally, I will be implementing SLAM and navigation using ROS2 to allow for autonomous navigation.
+					Finally, I will integrate all these so that a user can verbally operate the rover to begin SLAM, detection, navigation,
+					and other operations.
+				</p>
+            </article>
+            <!-- First section -->
+            <section>
+                <h2>Design Process</h2>
+                <p>**INFO</p>
+                <br />
+				<div class="scroll-wrapper">
+					<div class="single-image">
+						<img src="../img/jetros/jetros.jpeg" alt="Jetros">
+						<div class="caption"><b>Figure 1 —</b> Rover with Jetson Nano (+ wireless + fan), LCD panel, wheel base, and camera.</div>
+					</div>
+				</div>
+				<br />
+				<p>**INFO</p>
+            </section>
+            <!-- Second section -->
+            <section>
+                <h2>Next Steps</h2>
+                
+            </section>
+            <article class="footnotes">
+                <p id="fn1">
+                    Copyright &copy; <script>document.write(new Date().getFullYear())</script> Saron Manikam Bhoopathy. All rights reserved.
+                </p>
+            </article>
+        </main>
+        <script>
+            const darkModeToggle = document.getElementById('dark-mode-toggle')
+            darkModeToggle.addEventListener('click', () => {
+              document.body.classList.toggle('latex-dark')
+            })
+          </script>
+    </body>
 </html>
