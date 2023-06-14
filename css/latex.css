@@ -266,6 +266,8 @@
     text-align: center;
     font-family: "Times New Roman", Times, serif;
     margin: 20px;
+    width: 100%;
+    overflow: hidden;
   }
 
   .figure-quad {
@@ -276,7 +278,7 @@
     text-align: center;
     margin: auto;
     border: 2px solid black;
-    /*max-width: 420px; */
+    max-width: 420px;
     height: auto;
   }
   
