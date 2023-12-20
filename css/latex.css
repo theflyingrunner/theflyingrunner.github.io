@@ -383,6 +383,8 @@
     overflow-x: auto; /* does not work because element is not block */
     /* white-space: nowrap; */
     counter-increment: caption;
+    margin-left: auto;
+    margin-right: auto;
   }
   /* add bottom border on column table headings  */
   table tr > th[scope='col'] {
@@ -419,7 +421,7 @@
   }
   
   caption::before {
-    content: 'Table ' counter(caption) '. ';
+    
     font-weight: bold;
   }
   

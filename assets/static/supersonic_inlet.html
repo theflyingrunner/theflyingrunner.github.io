@@ -32,12 +32,21 @@
             <article class="abstract">
                 <h2>Abstract</h2>
                 <p> 
-                    This project was based on the RFP for the 6th AIAA Propulsion Aerodynamics Workshop (PAW-6), 
-                    whose goal is to assess the accuracy of existing CFD codes in simulating propulsion-related flows. 
-                    Specifically, this project aimed simulate a mixed-compression inlet with an internal shock structure and porous bleed regions. 
-                    The inlet, shown in fig. 1, is what is referred to as the NASA 1507 inlet, which is a Mach 3, axisymmetric-spike, mixed-compression 
-                    inlet which was developed and tested at NASA Ames in the late 1960s. 
-                    The geometry and test results were reported by Sorensen and Smeltzer in the NASA TM X-1507 report [1].
+                    The design of inlets for supersonic air-breathing engines is a complex process with significant costs.
+                    Therefore, an iterative design procedure using CFD is essential. 
+                    The ANSYS Workbench was used to study the flow through the NASA 1507 supersonic inlet—a Mach 3, axisymmetric-spike, mixed compression inlet. 
+                    The objective was to compare simulation results to different solver processes and to published data to assess accuracy of the simulation.
+                    A 2D geometry was generated and meshed to create unstructured grids of 42,885 and 92,753 nodes with inflation layers near the walls. 
+                    Simulations were run using the Second Order Upwind method for the flow and the turbulent dissipation rates, and the QUICK method for the turbulent kinetic energy. 
+                    The simulations was performed by varying the back-pressure at the engine face and in the bleed regions. 
+                    An internal shock structure was observed with oblique shocks of increasing turn angle. 
+                    The shock pattern ends with a terminal normal shock downstream of the throat producing subsonic flow at the engine face with minimal total pressure loss. 
+                    Increasing the back-pressure resulted in the terminal shock moving closer to the throat. 
+                    Shock-boundary layer interactions and bleed zone effects on the boundary layer thickness were resolved in both grids. 
+                    Another simulation was performed at the off-design condition of Mach 2 to study the behavior of the inlet. 
+                    This led to the formation of a detached bow shock at the inlet face which resulted in significant total pressure loss at the engine face. 
+                    The simulation results showed strong correlation to the published simulation results and to wind-tunnel data with comparable internal shock pattern, 
+                    terminal shock location, and outlet total pressure values.
                 </p>
             </article>
             <!-- Section 1 -->
@@ -103,6 +112,59 @@
                     This means that the entire mesh consists of 42,885 cells.
                 </p>
             </br>
+            <div class="scroll-wrapper">
+                <table>
+                  <caption><b>Table 1.</b> Inlet conditions used in the simulation.</caption>
+                  <tbody>
+                    <tr>
+                      <th scope="col">Parameter</th>
+                      <th scope="col">Value</th>
+                      <th scope="col">Unit</th>
+                    </tr>
+                    <tr>
+                      <th scope="row" style="color: teal;">Mach Number</th>
+                      <td><code>3.0</code></td>
+                      <td><code>N/A</code></td>
+                    </tr>
+                    <tr>
+                        <th scope="row" style="color: teal;">Total Pressure</th>
+                        <td><code>15.0</code></td>
+                        <td><code>psi</code></td>
+                      </tr>
+                      <tr>
+                        <th scope="row" style="color: teal;">Static Pressure</th>
+                        <td><code>0.4084</code></td>
+                        <td><code>psi</code></td>
+                      </tr>
+                      <tr>
+                        <th scope="row" style="color: teal;">Total Temperature</th>
+                        <td><code>616.0</code></td>
+                        <td><code>R</code></td>
+                      </tr>
+                      <tr>
+                        <th scope="row" style="color: teal;">Static Temperature</th>
+                        <td><code>220.0</code></td>
+                        <td><code>R</code></td>
+                      </tr>
+                      <tr>
+                        <th scope="row" style="color: teal;">Ratio of Specific Heats</th>
+                        <td><code>1.4</code></td>
+                        <td><code>N/A</code></td>
+                      </tr>
+                      <tr>
+                        <th scope="row" style="color: teal;">Specific Gas Constant</th>
+                        <td><code>1716.245</code></td>
+                        <td><code>ft-lbf/slug-R</code></td>
+                      </tr>
+                      <tr>
+                        <th scope="row" style="color: teal;">Mass Flow Rate</th>
+                        <td><code>0.7411</code></td>
+                        <td><code>slug/sec</code></td>
+                      </tr>
+                  </tbody>
+                </table>
+            </div>
+            </br>
                   <div class="figure-quad">
                       <div class="figure">
                           <div class="image-container">
@@ -114,6 +176,8 @@
                             <div class="caption"><b>(b)</b> Closeup of throat.</div>
                           </div>
                       </div> 
+                      <div class="caption"><b>Figure 3 —</b> Flow domain unstructured grid.
+                    </div>
                   </div>
                 </br>
                   <p>
@@ -126,31 +190,58 @@
                     In the first stage, the First Order Upwind method was used to solve for the flow, turbulent kinetic energy, and the turbulent dissipation rate. 
                     The solver was then run until either the residuals converged or the residuals oscillated for around 1000 iterations. 
                     In the second stage, the Second Order Upwind method was used to solve for the flow and the turbulent dissipation rate, and the QUICK method was used to solve for the turbulent kinetic energy. 
-                    This was run until the solution converged or started oscillating for around 1000 iterations. The boundary condition settings are summarized in the Fig. XX below. 
+                    This was run until the solution converged or started oscillating for around 1000 iterations. The boundary condition settings are summarized in the Fig. 4 below. 
                   </p>
                 </br>
                   <div class="scroll-wrapper">
                     <div class="single-image">
                         <img src="../img/supersonic_inlet/t5.png" alt="Inlet Boundary Conditions">
-                        <div class="caption"><b>Figure XX —</b> Inlet flow domain with boundary conditions labelled.</div>
+                        <div class="caption"><b>Figure 4 —</b> Inlet flow domain with boundary conditions labelled.</div>
                     </div>
                 </div>
-            </br>
             </section>
             <!-- Section 3 -->
             <section>
                 <h2>Results</h2>
                 <p>
                     The boundary conditions used in the bleed regions and at the engine face are highlighted in Table 2. 
-                    In Fig. 10, the normal shock is downstream of the bleed zones. 
-                    In Fig. 13, with increased backpressure, the normal shock moves to be between the bleed zones but downstream of the throat. 
-                    The extra case was simulated using test case 2 conditions at an off-design Mach number of 2. 
-                    This results in the formation of a bow shock in front of the inlet as observed in fig. 19.
                 </p>
-            
+                <br />
+                <div class="scroll-wrapper">
+                    <table>
+                      <caption><b>Table 2.</b> Values of total pressure used in the bleed regions and outlet/engine face.</caption>
+                      <tbody>
+                        <tr>
+                          <th scope="col">Region</th>
+                          <th scope="col">Total Pressure (Pa)</th>
+                        </tr>
+                        <tr>
+                          <th scope="row" style="color: teal;">Bleed Zone 1</th>
+                          <td><code>12307</code></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" style="color: teal;">Bleed Zone 2</th>
+                            <td><code>15513</code></td>
+                          </tr>
+                          <tr>
+                            <th scope="row" style="color: teal;">Bleed Zone 3</th>
+                            <td><code>10859</code></td>
+                          </tr>
+                          <tr>
+                            <th scope="row" style="color: teal;">Bleed Zone 4</th>
+                            <td><code>19443</code></td>
+                          </tr>
+                          <tr>
+                            <th scope="row" style="color: teal;">Outlet/Engine Face</th>
+                            <td><code>84185</code></td>
+                          </tr>
+                      </tbody>
+                    </table>
+                </div>
+            </br>
                 <p>
-                    Fig. 11 is the medium grid Mach contours of the simulation. 
-                    This figure highlights the effect the bleed zones and oblique shocks on the boundary layers with higher resolution than in the coarse grid. 
+                    The Mach contour results of the coarse and fine grids are presented in Figs. 5 and 6, respectively.
+                    Fig. 6 highlights the effect the bleed zones and oblique shocks on the boundary layers with higher resolution than in the coarse grid. 
                     It can be clearly seen that whenever an oblique shock or the normal shock hits a wall, it increases the size of the boundary layer. 
                     This is the effect of the shock-boundary layer interaction. 
                     The bleed zones have the effect of decreasing the size of the boundary layer by energizing the boundary layer and 
@@ -163,20 +254,20 @@
                 <div class="scroll-wrapper">
                     <div class="single-image">
                         <img src="../img/supersonic_inlet/tc2_coarse.png" alt="Mach countour coarse grid">
-                        <div class="caption"><b>Figure XX —</b> XX.</div>
+                        <div class="caption"><b>Figure 5 —</b> Mach contour of coarse grid.</div>
                     </div>
                 </div>
             </br>
                 <div class="scroll-wrapper">
                     <div class="single-image">
                         <img src="../img/supersonic_inlet/tc2_fine.png" alt="Mach countour fine grid">
-                        <div class="caption"><b>Figure XX —</b> XX.</div>
+                        <div class="caption"><b>Figure 6 —</b> Mach contour of fine grid.</div>
                     </div>
                 </div>
             </br>
                 <p>
                     The operating conditions provide the desired outlet total pressures for
-                    the inlet. Fig. XX shows the total pressure profile at the outlet. 
+                    the inlet. Fig. 7 shows the total pressure profile at the outlet. 
                     It was observed that the total pressure distribution varied along the radial
                     direction at the engine face. The total pressure was low near the inlet center-body and the cowl. 
                     The pressure then increased towards a
@@ -187,16 +278,16 @@
                 <div class="scroll-wrapper">
                     <div class="single-image">
                         <img src="../img/supersonic_inlet/outlet_pressure.png" alt="Outlet pressure comparison">
-                        <div class="caption"><b>Figure XX —</b> XX.</div>
+                        <div class="caption"><b>Figure 7 —</b> Comparison of outlet total pressure profile.</div>
                     </div>
                 </div>
                 </br>
                 <p>
-                    Fig. XX is the Mach contour of the off-design condition of Mach 2 run on the fine
+                    Fig. 8 is the Mach contour of the off-design condition of Mach 2 run on the fine
                     grid. The internal shock pattern is abolished and a detached or bow shock forms at the front face
                     of the inlet. Majority of the supersonic velocity is lost after this shock and the flow reaches
                     subsonic levels downstream of the throat. Therefore, the engine is still operable at the off-design
-                    condition. However, in Fig. 20, the total pressure profile can be seen at the outlet to be around
+                    condition. However, in this case, the total pressure profile at the outlet was around
                     71,300 Pa as opposed to the 84,185 Pa as observed at the design condition. Therefore, the presence of the
                     internal shock structure and the slow compression of the flow leads to minimal total pressure
                     losses and increased engine efficiency. In the off-design case of Mach 2, significant total
@@ -206,7 +297,7 @@
                 <div class="scroll-wrapper">
                     <div class="single-image">
                         <img src="../img/supersonic_inlet/off_design.png" alt="Off-design Mach contour">
-                        <div class="caption"><b>Figure XX —</b> XX.</div>
+                        <div class="caption"><b>Figure 8 —</b> Mach contour of off-design condition on fine grid.</div>
                     </div>
                 </div>
                 </br>
@@ -217,7 +308,7 @@
                     oblique shocks inside the inlet became more defined. This was especially prevalent at and just
                     after the throat, where the distance between each shock was becoming shorter and shorter.
                     Lastly, the Mach contour of the test case is compared with the simulation results published by PAW-6
-                    [2] in Fig. XX. As it can be seen, the internal shock structure and shock-boundary layer
+                    [2] in Fig. 9. As it can be seen, the internal shock structure and shock-boundary layer
                     interactions are nearly identical between the two results. However, in the published results, the
                     normal shock is slightly downstream of the normal shock.
                 </p>
@@ -225,7 +316,7 @@
                 <div class="scroll-wrapper">
                     <div class="single-image">
                         <img src="../img/supersonic_inlet/comparison.png" alt="Mach countour comparison">
-                        <div class="caption"><b>Figure XX —</b> XX.</div>
+                        <div class="caption"><b>Figure 9 —</b> Comparison of Mach contour of simulation and PAW-6 published results.</div>
                     </div>
                 </div>
                 </br>
@@ -248,7 +339,7 @@
                 </p>
             </section>
             <!--Section 4-->
-          <section>
+            <section>
             <h2>Conclusion</h2>
             <p>
                 This was a challenging problem aimed at analyzing flow through the NASA 1507 supersonic inlet with
@@ -266,6 +357,16 @@
                 internal shock pattern and shock-boundary layer interactions are nearly identical. The primary
                 difference between the two sets of results is the location of the normal shock. In the published
                 results, the normal shock is slightly downstream of the normal shock in our results.
+            </p>
+          </section>
+          <!--Section 5-->
+          <section>
+            <h2>References</h2>
+            <p>
+                [1] Sorensen, N. E., and Smeltzer, D. B. Investigation of an Axisymmetric Inlet System Capable of High-Performance at Mach Numbers 0.6 to 5.0. NASA TM X-1507, February 1968.
+            </p>
+            <p>
+                [2] AIAA Propulsion Aerodynamics Workshop. NASA 1507 Inlet Briefing Pack. 6th AIAA Propulsion Aerodynamics Workshop, January 21-22, 2023. National Harbor, MD, USA.
             </p>
           </section>
             <article class="footnotes">
