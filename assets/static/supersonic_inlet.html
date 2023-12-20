@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Saron Bhoopathy</title>
+        <link rel="icon" type="image/x-icon" href="../img/astro3.ico">
+        <link rel="stylesheet" href="../../css/latex.css">
+    </head>
+    <body>
+        <header>
+            <h1>Supersonic Inlet</h1> 
+            <p class="author">Saron Bhoopathy
+                <br />
+                <script>
+                    const monthNames = ["January", "February", "March", "April", "May", "June",
+                    "July", "August", "September", "October", "November", "December"];
+                    var currentDate = new Date();
+                    var month = currentDate.getMonth();
+                    var date = currentDate.getDate();
+                    var year = currentDate.getFullYear();
+                    var fullDate = " " + monthNames[month] + " " + date + ", " + year
+                    document.write(fullDate);
+                </script>
+                <br />
+                <!--
+				<button id="dark-mode-toggle">Dark Mode</button>
+				-->
+            </p>
+        </header>
+        <main>
+            <article class="abstract">
+                <h2>Abstract</h2>
+                <p> 
+                    This project was based on the RFP for the 6th AIAA Propulsion Aerodynamics Workshop (PAW-6), 
+                    whose goal is to assess the accuracy of existing CFD codes in simulating propulsion-related flows. 
+                    Specifically, this project aimed simulate a mixed-compression inlet with an internal shock structure and porous bleed regions. 
+                    The inlet, shown in fig. 1, is what is referred to as the NASA 1507 inlet, which is a Mach 3, axisymmetric-spike, mixed-compression 
+                    inlet which was developed and tested at NASA Ames in the late 1960s. 
+                    The geometry and test results were reported by Sorensen and Smeltzer in the NASA TM X-1507 report [1].
+                </p>
+            </article>
+            <!-- Section 1 -->
+            <section>
+                <h2>Introduction</h2>
+                <p>
+                    This project was based on the RFP for the 6th AIAA Propulsion Aerodynamics Workshop (PAW-6),
+                    whose goal is to assess the accuracy of existing CFD codes in simulating propulsion-related flows. 
+                    Specifically, this project aimed simulate a mixed-compression inlet with an internal shock structure and porous bleed regions. 
+                    The inlet, shown in Fig. 1, is what is referred to as the NASA 1507 inlet, which is a Mach 3, axisymmetric-spike, mixed-compression inlet 
+                    which was developed and tested at NASA Ames in the late 1960s. 
+                    The geometry and test results were reported by Sorensen and Smeltzer in the NASA TM X-1507 report [1]. 
+                    The inlet was selected due to its geometric simplicity, public availability, and published wind-tunnel data.
+                </p>
+            </br>
+                <div class="scroll-wrapper">
+                    <div class="single-image">
+                        <img src="../img/supersonic_inlet/t1.png" alt="Inlet CAD">
+                        <div class="caption"><b>Figure 1 —</b> NASA 1507 Supersonic Inlet Geometry.</div>
+                    </div>
+                </div>
+            </br>
+                <p>
+                    The 2D axisymmetric geometry is labelled and highlighted in Fig. 2 along with the flow domain.
+                    The inlet consists of a center-body spike that acts as a converging-diverging nozzle. 
+                    A cowl is present to establish the internal shock structure. 
+                    A total of four bleed regions are present in both the cowl and center-body to energize the boundary layer and prevent flow separation due to shock-boundary layer interactions. 
+                    The inlet was designed such that the internal shock structure slowly turned the flow before ending with a terminal shock. 
+                    This ensures minimal total pressure losses and production of subsonic flow at the engine face. 
+                    The inlet servs two purposes in a typical turbojet engine, first is to compress the incoming air and second to slow supersonic flow to subsonic speeds as required by the turbomachinery.
+                </p>
+            </br>
+                <div class="scroll-wrapper">
+                    <div class="single-image">
+                        <img src="../img/supersonic_inlet/t2.png" alt="Flow Domain Geometry">
+                        <div class="caption"><b>Figure 2 —</b> Flow domain and problem geometry of the inlet.</div>
+                    </div>
+                </div>
+            </br>
+                <p>
+                    For all three test cases, the inlet conditions were kept the same. 
+                    These are summarized in Table 1. For the extra test case, the freestream Mach number was changed from 3 to 2. 
+                    The outlet and bleed zone boundary conditions were changed between each test case. 
+                    Those are described in more detail in the Analysis section below.
+                </p>
+            </section>
+            <!-- Section 2 -->
+            <section>
+                <h2>Methods</h2>
+                <p>
+                    Two grids were generated and used for this problem, a coarse grid and a fine grid. 
+                    The coarse grid was an unstructured mesh with inflation layers near the wall in order to effectively capture the boundary
+                    layers and their interaction with the shocks. 
+                    To size the inflation layers, it was assumed that the walls along the entire length of the inlet were flat plates. 
+                    This assumption seemed reasonable enough, as the purpose of the bleed zones was to prevent any boundary layer separation along the length of the inlet. 
+                    Then, using the Blasius flat solution, the first layer cell size y1 was determined by finding the location where y+ = 30. 
+                    A growth rate of 1.2 was set for the layers, and 15 layers were added. 
+                    Using this method, the initial cell size around the inlet center-body was 1.35e-4 m. 
+                    The initial cell size around the inlet cowl was 1.28e-4 m. 
+                    The unstructured cell meshing for the rest of the flow domain was then 
+                    adjusted to limit the aspect ratio of the cells to less than 1000.
+                    Doing so, a face sizing element size of 5e-3m was obtained. 
+                    This means that the entire mesh consists of 42,885 cells.
+                </p>
+            </br>
+                  <div class="figure-quad">
+                      <div class="figure">
+                          <div class="image-container">
+                            <img src="../img/supersonic_inlet/t3.png" alt="Mesh Overview">
+                            <div class="caption"><b>(a)</b> Full view of fine grid.</div>
+                          </div>
+                          <div class="image-container">
+                            <img src="../img/supersonic_inlet/t4.png" alt="Mesh Closeup">
+                            <div class="caption"><b>(b)</b> Closeup of throat.</div>
+                          </div>
+                      </div> 
+                  </div>
+                </br>
+                  <p>
+                    ANSYS Fluent was used to solve the problem.
+                    Double precision was with 6 solver processes.
+                    A density-based, axisymmetric solver was selected with a CFL number of 1.
+                    The k-epsilon model for turbulence with simple wall functions was used, and thermal models were turned on. 
+                    Air was selected as the fluid model, with ideal gas assumptions. 
+                    In order to converge to a single solution, the problem was solved in two stages.
+                    In the first stage, the First Order Upwind method was used to solve for the flow, turbulent kinetic energy, and the turbulent dissipation rate. 
+                    The solver was then run until either the residuals converged or the residuals oscillated for around 1000 iterations. 
+                    In the second stage, the Second Order Upwind method was used to solve for the flow and the turbulent dissipation rate, and the QUICK method was used to solve for the turbulent kinetic energy. 
+                    This was run until the solution converged or started oscillating for around 1000 iterations. The boundary condition settings are summarized in the Fig. XX below. 
+                  </p>
+                </br>
+                  <div class="scroll-wrapper">
+                    <div class="single-image">
+                        <img src="../img/supersonic_inlet/t5.png" alt="Inlet Boundary Conditions">
+                        <div class="caption"><b>Figure XX —</b> Inlet flow domain with boundary conditions labelled.</div>
+                    </div>
+                </div>
+            </br>
+            </section>
+            <!-- Section 3 -->
+            <section>
+                <h2>Results</h2>
+                <p>
+                    The boundary conditions used in the bleed regions and at the engine face are highlighted in Table 2. 
+                    In Fig. 10, the normal shock is downstream of the bleed zones. 
+                    In Fig. 13, with increased backpressure, the normal shock moves to be between the bleed zones but downstream of the throat. 
+                    The extra case was simulated using test case 2 conditions at an off-design Mach number of 2. 
+                    This results in the formation of a bow shock in front of the inlet as observed in fig. 19.
+                </p>
+            
+                <p>
+                    Fig. 11 is the medium grid Mach contours of the simulation. 
+                    This figure highlights the effect the bleed zones and oblique shocks on the boundary layers with higher resolution than in the coarse grid. 
+                    It can be clearly seen that whenever an oblique shock or the normal shock hits a wall, it increases the size of the boundary layer. 
+                    This is the effect of the shock-boundary layer interaction. 
+                    The bleed zones have the effect of decreasing the size of the boundary layer by energizing the boundary layer and 
+                    delaying its growth caused by the shocks and the curved geometry of the inlet. 
+                    The bleed zones are only effective in decreasing the size of the boundary layer only if they occur after the oblique shocks and before the normal shock. 
+                    For instance, it can be clearly seen that the boundary layer grows quickly in size along the engine cowl due to the normal shock occurring 
+                    after all the bleed zones at the top.
+                </p>
+            </br>
+                <div class="scroll-wrapper">
+                    <div class="single-image">
+                        <img src="../img/supersonic_inlet/tc2_coarse.png" alt="Mach countour coarse grid">
+                        <div class="caption"><b>Figure XX —</b> XX.</div>
+                    </div>
+                </div>
+            </br>
+                <div class="scroll-wrapper">
+                    <div class="single-image">
+                        <img src="../img/supersonic_inlet/tc2_fine.png" alt="Mach countour fine grid">
+                        <div class="caption"><b>Figure XX —</b> XX.</div>
+                    </div>
+                </div>
+            </br>
+                <p>
+                    The operating conditions provide the desired outlet total pressures for
+                    the inlet. Fig. XX shows the total pressure profile at the outlet. 
+                    It was observed that the total pressure distribution varied along the radial
+                    direction at the engine face. The total pressure was low near the inlet center-body and the cowl. 
+                    The pressure then increased towards a
+                    peak somewhere in the middle of the flow domain. The exit pressure was determined to be “correct” when the target total pressure was
+                    around halfway between the minimum and maximum total pressure of the distribution.
+                </p>
+                </br>
+                <div class="scroll-wrapper">
+                    <div class="single-image">
+                        <img src="../img/supersonic_inlet/outlet_pressure.png" alt="Outlet pressure comparison">
+                        <div class="caption"><b>Figure XX —</b> XX.</div>
+                    </div>
+                </div>
+                </br>
+                <p>
+                    Fig. XX is the Mach contour of the off-design condition of Mach 2 run on the fine
+                    grid. The internal shock pattern is abolished and a detached or bow shock forms at the front face
+                    of the inlet. Majority of the supersonic velocity is lost after this shock and the flow reaches
+                    subsonic levels downstream of the throat. Therefore, the engine is still operable at the off-design
+                    condition. However, in Fig. 20, the total pressure profile can be seen at the outlet to be around
+                    71,300 Pa as opposed to the 84,185 Pa as observed at the design condition. Therefore, the presence of the
+                    internal shock structure and the slow compression of the flow leads to minimal total pressure
+                    losses and increased engine efficiency. In the off-design case of Mach 2, significant total
+                    pressure losses occur leading to reduced engine efficiency.
+                </p>
+                </br>
+                <div class="scroll-wrapper">
+                    <div class="single-image">
+                        <img src="../img/supersonic_inlet/off_design.png" alt="Off-design Mach contour">
+                        <div class="caption"><b>Figure XX —</b> XX.</div>
+                    </div>
+                </div>
+                </br>
+                <p>
+                    Refining the grid from coarse to fine had the effect of changing the total pressure distribution at the
+                    outlet. In this case, it increased the peak total pressure. 
+                    An additional effect was that the
+                    oblique shocks inside the inlet became more defined. This was especially prevalent at and just
+                    after the throat, where the distance between each shock was becoming shorter and shorter.
+                    Lastly, the Mach contour of the test case is compared with the simulation results published by PAW-6
+                    [2] in Fig. XX. As it can be seen, the internal shock structure and shock-boundary layer
+                    interactions are nearly identical between the two results. However, in the published results, the
+                    normal shock is slightly downstream of the normal shock.
+                </p>
+                </br>
+                <div class="scroll-wrapper">
+                    <div class="single-image">
+                        <img src="../img/supersonic_inlet/comparison.png" alt="Mach countour comparison">
+                        <div class="caption"><b>Figure XX —</b> XX.</div>
+                    </div>
+                </div>
+                </br>
+                <p>
+                    Because it was assumed that the boundary layer was attached along the entire length of the
+                    inlet, the y1 value for each wall was larger than what it would be without the assumption. 
+                    This likely meant that, especially closer to the inlet and around the
+                    bleed zones, some details about the flow could have been lost. In fact, refining the grid from
+                    coarse to fine did result in extra detail about the boundary layers being captured. This is notable along the engine center-body after the
+                    first oblique shock hits the boundary layer.
+                </p>
+                <p>
+                    There are two major improvements which could be made to the grid which would help
+                    improve the quality of the solution. First off, to better capture the shape of the shocks, patching
+                    could be used in regions with a high total pressure gradient in order to refine the grid. Second,
+                    the areas around the bleed zone include some rapid changes in flow direction and magnitude
+                    which is not accurately captured using our current grid. Refining the size of the grid near the
+                    bleed zones might be better able to capture the
+                    characteristics of the flow near the bleed zones.
+                </p>
+            </section>
+            <!--Section 4-->
+          <section>
+            <h2>Conclusion</h2>
+            <p>
+                This was a challenging problem aimed at analyzing flow through the NASA 1507 supersonic inlet with
+                resolving an internal shock structure, porous bleed zones, and shock-boundary layer interactions.
+                The results indicate that the inlet’s internal shock structure turns the flow slowly through
+                oblique shocks before terminating in a normal shock. This produces subsonic flow at the engine
+                face, as required for normal engine operation, with minimal total pressure losses and reduced
+                entropy. Shock-boundary layer interactions resulted in increased boundary layer thickness after
+                an oblique shock. The bleed zones energize the boundary layer and reduce its size, thereby
+                preventing boundary layer separation. To test off-design performance of the inlet for the extra
+                assignment, the simulation was run at Mach 2 with the boundary conditions of test case 2. This
+                resulted in the formation of a detached bow shock at the front face of the inlet. Though subsonic
+                flow was achieved at the engine face, the total pressure losses were significant. Further, our
+                simulation results were compared to the simulation results provided in the PAW-6 handout. The
+                internal shock pattern and shock-boundary layer interactions are nearly identical. The primary
+                difference between the two sets of results is the location of the normal shock. In the published
+                results, the normal shock is slightly downstream of the normal shock in our results.
+            </p>
+          </section>
+            <article class="footnotes">
+                <p id="fn1">
+                    Copyright &copy; <script>document.write(new Date().getFullYear())</script> Saron Manikam Bhoopathy. All rights reserved.
+                </p>
+            </article>
+        </main>
+        <script>
+            const darkModeToggle = document.getElementById('dark-mode-toggle')
+            darkModeToggle.addEventListener('click', () => {
+              document.body.classList.toggle('latex-dark')
+            })
+          </script>
+    </body>
+</html> 
