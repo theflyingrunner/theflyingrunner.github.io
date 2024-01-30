@@ -29,30 +29,147 @@
             </p>
         </header>
         <main>
-            <article class="abstract">
-                <h2>Abstract</h2>
-                <p> 
-                    TEXT.
-                </p>
-                
-            </article>
             <!-- Section 1 -->
             <section>
                 <h2>Introduction</h2>
-                
+                <p>
+                    A wing with a NACA 0012 airfoil section is supported such that one end is fixed and the other end is free. The wing has a chord of 1 meter, a span of 5 meters, and a thickness of 0.01 meters. The wing is Aluminum 6061-T6. Find the first six modes of vibration of the airfoil using Ansys Workbench.
+                </p>
             </section>
             <!-- Section 2 -->
             <section>
                 <h2>Methods</h2>
+            </br>
+            <div class="scroll-wrapper">
+                <div class="single-image">
+                    <img src="../img/wing/t1.png" alt="Wing geometry">
+                    <div class="caption"><b>Figure 1 —</b> Wing geometry.</div>
+                </div>
+            </div>
+            </br>
+            <div class="scroll-wrapper">
+                <div class="single-image">
+                    <img src="../img/wing/t2.png" alt="Coarse grid">
+                    <div class="caption"><b>Figure 2 —</b> Wing with structured coarse grid.</div>
+                </div>
+            </div>
+            </br>
             </section>
             <!--Section 3 -->
             <section>
                 <h2>Results</h2>
+                <div class="scroll-wrapper">
+                    <table>
+                      <caption><b>Table 1.</b> Inlet conditions used in the simulation.</caption>
+                      <tbody>
+                        <tr>
+                          <th scope="col">Mode</th>
+                          <th scope="col">Frequency (Hz), coarse</th>
+                          <th scope="col">Frequency (Hz), refined</th>
+                        </tr>
+                        <tr>
+                          <th scope="row" style="color: black;">1</th>
+                          <td><code>4.8319</code></td>
+                          <td><code>4.8286</code></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" style="color: black;">2</th>
+                            <td><code>25.321</code></td>
+                            <td><code>25.231</code></td>
+                          </tr>
+                          <tr>
+                            <th scope="row" style="color: black;">3</th>
+                            <td><code>32.167</code></td>
+                            <td><code>32.147</code></td>
+                          </tr>
+                          <tr>
+                            <th scope="row" style="color: black;">4</th>
+                            <td><code>38.082</code></td>
+                            <td><code>38.029</code></td>
+                          </tr>
+                          <tr>
+                            <th scope="row" style="color: black;">5</th>
+                            <td><code>48.304</code></td>
+                            <td><code>48.052</code></td>
+                          </tr>
+                          <tr>
+                            <th scope="row" style="color: black;">6</th>
+                            <td><code>53.531</code></td>
+                            <td><code>53.391</code></td>
+                          </tr>
+                      </tbody>
+                    </table>
+                </div>
+                </br>
+                <div class="figure-quad">
+                    <div class="figure">
+                        <div class="image-container">
+                          <img src="../img/wing/M1A.png" alt="Mode 1 A">
+                          <div class="caption"><b>(a)</b> Mode 1, isometric view.</div>
+                        </div>
+                        <div class="image-container">
+                          <img src="../img/wing/M1B.png" alt="Mode 1 B">
+                          <div class="caption"><b>(b)</b> Mode 1, profile view.</div>
+                        </div>
+                    </div> 
+                    <div class="figure">
+                        <div class="image-container">
+                          <img src="../img/wing/M2A.png" alt="Mode 2 A">
+                          <div class="caption"><b>(c)</b> Mode 2, isometric view.</div>
+                        </div>
+                        <div class="image-container">
+                          <img src="../img/wing/M2B.png" alt="Mode 2 B">
+                          <div class="caption"><b>(d)</b> Mode 2, profile view.</div>
+                        </div>
+                    </div>  
+                    <div class="figure">
+                        <div class="image-container">
+                          <img src="../img/wing/M3A.png" alt="Mode 3 A">
+                          <div class="caption"><b>(e)</b> Mode 3, isometric view.</div>
+                        </div>
+                        <div class="image-container">
+                          <img src="../img/wing/M3B.png" alt="Mode 3 B">
+                          <div class="caption"><b>(f)</b> Mode 3, profile view.</div>
+                        </div>
+                    </div>  
+                    <div class="figure">
+                        <div class="image-container">
+                          <img src="../img/wing/M4A.png" alt="Mode 4 A">
+                          <div class="caption"><b>(g)</b> Mode 4, isometric view.</div>
+                        </div>
+                        <div class="image-container">
+                          <img src="../img/wing/M4B.png" alt="Mode 4 B">
+                          <div class="caption"><b>(h)</b> Mode 4, profile view.</div>
+                        </div>
+                    </div>  
+                    <div class="figure">
+                        <div class="image-container">
+                          <img src="../img/wing/M5A.png" alt="Mode 5 A">
+                          <div class="caption"><b>(i)</b> Mode 5, isometric view.</div>
+                        </div>
+                        <div class="image-container">
+                          <img src="../img/wing/M5B.png" alt="Mode 5 B">
+                          <div class="caption"><b>(j)</b> Mode 5, profile view.</div>
+                        </div>
+                    </div>  
+                    <div class="figure">
+                        <div class="image-container">
+                          <img src="../img/wing/M6A.png" alt="Mode 6 A">
+                          <div class="caption"><b>(k)</b> Mode 6, isometric view.</div>
+                        </div>
+                        <div class="image-container">
+                          <img src="../img/wing/M6B.png" alt="Mode 6 B">
+                          <div class="caption"><b>(l)</b> Mode 6, profile view.</div>
+                        </div>
+                    </div> 
+                    <div class="caption"><b>Figure XX —</b> Wing deformation at all 6 modes.
+                    </div>
+                </div>
             </section>
             <!-- Section 4 -->
             <section>
                 <h2>Conclusion</h2>
-                
+
             </section>
             <article class="footnotes">
                 <p id="fn1">
