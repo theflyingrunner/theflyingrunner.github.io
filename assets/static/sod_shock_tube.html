@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Saron Bhoopathy</title>
+        <link rel="icon" type="image/x-icon" href="../img/astro3.ico">
+        <link rel="stylesheet" href="../../css/latex.css">
+        <script type="text/javascript" 
+        src="https://www.maths.nottingham.ac.uk/plp/pmadw/LaTeXMathML.js">
+  </script>
+    </head>
+    <body>
+        <header>
+            <h1>Sod Shock Tube</h1> 
+            <p class="author">Saron Bhoopathy
+                <br />
+                <script>
+                    const monthNames = ["January", "February", "March", "April", "May", "June",
+                    "July", "August", "September", "October", "November", "December"];
+                    var currentDate = new Date();
+                    var month = currentDate.getMonth();
+                    var date = currentDate.getDate();
+                    var year = currentDate.getFullYear();
+                    var fullDate = " " + monthNames[month] + " " + date + ", " + year
+                    document.write(fullDate);
+                </script>
+                <br />
+                <!--
+				<button id="dark-mode-toggle">Dark Mode</button>
+				-->
+            </p>
+        </header>
+        <main>
+            <!-- Section 1 -->
+            <section>
+                <h2>Introduction</h2>
+                <p>
+                    This project aims to solve the famous Sod Shock Tube problem using the Steger-Warming scheme. 
+                    Two approaches are used, one where the solution at the cell faces are computed using 
+                    a first-order extrapolation and another using the MUSCL formalism. 
+                    To access the repository and play with the code yourself, please <a href="https://github.com/theflyingrunner/sod-shock-tube">click here</a>.
+                </p>
+                <p>
+                    A shock tube is a long pipe, which is divided into a driver section and a driven section by a diaphragm [2].
+                    The driver section is pressurized with an inert gas, and the driven section contains the test gas mixture that is under experimental investigation. 
+                    Following the rupture of the diaphragm, a normal shock develops which propagates into the driven section and is reflected at the end wall.
+                    The Sod shock tube problem is a commonly used validation case for fluid dymanics models. 
+                    The initial conditions for the Sod shock tube problem are such that the driver side is
+                    $\lbrack
+                    \begin{array}{aligncode}
+                    \rho_L \\
+                    P_L \\
+                    u_L 
+                    \end{array}
+                    \rbrack  = 
+                    \lbrack
+                    \begin{array}{aligncode}
+                    1.0 \\
+                    1.0 \\
+                    0.0 
+                    \end{array}
+                    \rbrack$
+                    and the driven side is 
+                    $\lbrack
+                    \begin{array}{aligncode}
+                    \rho_R \\
+                    P_R \\
+                    u_R 
+                    \end{array}
+                    \rbrack  = 
+                    \lbrack
+                    \begin{array}{aligncode}
+                    0.125 \\
+                    0.1 \\
+                    0.0 
+                    \end{array}
+                    \rbrack$.
+                </p>
+            </br>
+                <div class="scroll-wrapper">
+                    <div class="single-image">
+                        <img src="../img/sod/sod_intro.png" alt="Sod Intro">
+                        <div class="caption"><b>Figure 1 —</b> Basic schematic of Sod shock tube.</div>
+                    </div>
+                </div>
+            </br>
+                <p>
+                    The Steger-Warming scheme is an upwind method for solving compressible Euler and Navier-Stokes equations in high-speed flows [1].
+                    It is a  flux vector splitting (FVS) method that splits the fluxes into positive and negative parts in accordance with the 
+                    propagation of the information. 
+                    However, some inaccuracies are present in this scheme due to the effect of a fictitious pressue gradient that is developed in the boundary layer,
+                    thereby lending to the scheme's first-order accuracy.
+                    One remedy is to use the Monotonic Upstream-centered Scheme for Conservation Laws (MUSCL) formalism in conjunction with the Steger-Warming scheme.
+                    This improves the model to third-order accuracy.
+                </p>
+            </br>
+            </section>
+            <!-- Section 2 -->
+            <section>
+                <h2>Methods</h2>
+                <p>
+                    The solver code was written in C and the results were analyzed in MATLAB.
+                    The code repository can be found <a href="https://github.com/theflyingrunner/sod-shock-tube">here</a>, along with the instructions
+                </p>
+            </br>
+            </section>
+            <!-- Section 3 -->
+            <section>
+                <h2>Results</h2>
+                <p>
+                    The results validate the model developed for this test case. 
+                    Figure 2 showcases the difference in accuracy between the Steger-Warming scheme using MUSCL and without MUSCL.
+                    The effects of the fictitious pressure gradient in the boundary layer can be seen clearly.
+                </p>
+            </br>
+                <div class="scroll-wrapper">
+                    <div class="single-image">
+                        <img src="../img/sod/results.png" alt="Results">
+                        <div class="caption"><b>Figure 2 —</b> Solution results comparing thermodynamic parameters between the upwind schemes with and without MUSCL.</div>
+                    </div>    
+                </div>
+            </br>
+                <div class="scroll-wrapper">
+                    <div class="single-image">
+                        <img src="../img/sod/animation.gif" alt="Animation">
+                        <div class="caption"><b>Figure 3 —</b> Animation of the results from MUSCL formalism showing growth of parameters with time.</div>
+                    </div>
+                </div>
+            </br>
+            </section>
+            <!--Section 4-->
+            <section>
+            <h2>Conclusion</h2>
+            <p>
+                This project shows the development of numerical finite difference techniques and their subsequent validation using popular test cases.
+                For any aspiring fluid dynamicists, it is imperative to understand the underlying numerical schemes used in commercial CFD packages.
+                My hope is that this project inspires and guides those who are interested in honing their CFD skills.
+            </p>
+          </section>
+          <!--Section 5-->
+          <section>
+            <h2>References</h2>
+            <p>
+                [1] Drikakis, D., and Tsangaris, S., “On the solution of the compressible navier- stokes equations using improved flux vector splitting methods,” Applied Mathematical Modelling, vol. 17, Jun. 1993, pp. 282–297. 
+            </p>
+            <p>
+                [2] Grogan, K., and Ihme, M., “Stanshock: A gas-dynamic model for shock tube simulations with non-ideal effects and chemical kinetics,” Shock Waves, vol. 30, Jan. 2020, pp. 425–438. 
+            </p>
+
+          </section>
+            <article class="footnotes">
+                <p id="fn1">
+                    Copyright &copy; <script>document.write(new Date().getFullYear())</script> Saron Manikam Bhoopathy. All rights reserved.
+                </p>
+            </article>
+        </main>
+        <script>
+            const darkModeToggle = document.getElementById('dark-mode-toggle')
+            darkModeToggle.addEventListener('click', () => {
+              document.body.classList.toggle('latex-dark')
+            })
+          </script>
+    </body>
+</html> 
